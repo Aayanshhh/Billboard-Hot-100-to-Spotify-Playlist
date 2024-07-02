@@ -32,7 +32,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
 # Extract song titles from the HTML
-top_100_songs_list = soup.find_all(name="h3", id='title-of-a-story')
+top_100_songs_list = soup.find_all(name="h3", class_='a-no-trucate')
 new_data = [song.get_text(strip=True) for song in top_100_songs_list]
 
 # Search for each song on Spotify and collect their URIs
